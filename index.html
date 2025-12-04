@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>How has safety developed in Formula 1 over time?</title>
 
+<!-- F1-style Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
 
 /* ==== COLOUR THEME WITH RED BACKGROUND + WHITE BUBBLES ==== */
@@ -16,7 +19,7 @@
   --accent-soft: #ffddd9;
   --box-bg: #ffffff;      /* white bubble background */
   --box-border: #d0d0d0;
-  --toc-bg: #ffffff;      /* TOC bubble stays white */
+  --toc-bg: #ffffff;
   --toc-hover: #b80000;
   --heading: #b30000;
 }
@@ -25,26 +28,37 @@ body {
   background-color: var(--bg);
   margin-left: 50px;
   margin-right: 50px;
-  font-family: "Calibri", "Segoe UI", Arial, sans-serif;
+  font-family: "Montserrat", Arial, sans-serif;
   line-height: 1.6;
   color: var(--text);
 }
 
-header {
-  margin-top: 20px;
-  margin-bottom: 10px;
+/* Banner styling */
+img.banner {
+  border: 4px solid white;
+  border-radius: 12px;
+  max-width: 100%;
+  box-shadow: 0 0 15px rgba(0,0,0,0.25);
 }
 
+/* Headings (F1 digital style) */
 h1 {
+  font-family: "Orbitron", sans-serif;
   font-size: 2rem;
   margin-bottom: 0.25rem;
-  color: white; /* heading readable on red background */
+  color: white;
 }
 
 h2, h3 {
+  font-family: "Orbitron", sans-serif;
   margin-top: 1.25rem;
   margin-bottom: 0.5rem;
   color: var(--heading);
+}
+
+/* Student URN white */
+h2.urn {
+  color: white !important;
 }
 
 hr {
@@ -57,7 +71,7 @@ nav.toc {
   border: 2px solid var(--accent);
   padding: 14px;
   max-width: 360px;
-  background: var(--toc-bg); 
+  background: var(--toc-bg);
   margin-bottom: 1rem;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.15);
@@ -129,10 +143,10 @@ img {
 
 <body>
 
-<img src="download (2).png" alt="Banner" width="1200" height="300">
+<img src="download (2).png" alt="Banner" class="banner" width="1200" height="300">
 
 <h1><b>ENG0018 Computer Laboratory 2025/26</b></h1>
-<h2>Student URN: 6926508</h2>
+<h2 class="urn">Student URN: 6926508</h2>
 
 <nav class="toc">
   <h3>Table of contents</h3>
@@ -161,7 +175,7 @@ This article examines the extensive evolution of Formula 1 safety standards…
 <section id="Introduction">
 <h2>Introduction</h2>
 <p>
-Formula 1 began in Britain in 1950, emerging from a period where safety standards across society…
+Formula 1 began in Britain in 1950, emerging from a period where safety standards…
 </p>
 </section>
 
@@ -197,7 +211,7 @@ Fire was once one of Formula 1’s most terrifying hazards…
 <section id="Monocoque">
 <h2>The monocoque and survival cell</h2>
 <p>
-As Formula 1 cars grew faster from the 1970s onward, improving structural protection became essential…
+As Formula 1 cars grew faster from the 1970s onward…
 </p>
 </section>
 
@@ -206,7 +220,7 @@ As Formula 1 cars grew faster from the 1970s onward, improving structural protec
 <section id="Conclusion">
 <h2>Conclusion</h2>
 <p>
-From cloth caps and haybales to carbon fibre monocoques and titanium halos…
+From cloth caps and haybales to carbon fibre monocoques…
 </p>
 </section>
 
