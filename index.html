@@ -22,6 +22,8 @@
   --toc-bg: #ffffff;
   --toc-hover: #b80000;
   --heading: #b30000;
+  --meta-bg: #ffe6e6;
+  --meta-border: #ff4d4d;
 }
 
 body {
@@ -120,6 +122,27 @@ pre.references {
   box-shadow: 0 0 6px rgba(0,0,0,0.05);
 }
 
+#totalWordCount, #last-updated {
+  background: var(--meta-bg);
+  border: 2px solid var(--meta-border);
+  padding: 10px 15px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  margin: 15px 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+#last-updated {
+  background: #ffe6e6;
+  border-color: #ff4d4d;
+}
+
+#totalWordCount {
+  background: #fff0f0;
+  border-color: #ff9999;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -172,6 +195,8 @@ This article examines the extensive evolution of Formula 1 safety standards and 
 
 <hr>
 
+<div id="content-body">
+
 <section id="Introduction">
 <h2>Introduction</h2>
 <p>
@@ -201,6 +226,7 @@ Progress accelerated thereafter. Visors were added, and Dan Gurney introduced th
 </p>
 <img src="TensileStressGraph.png" alt="Tensile Stress Graph comparing Kevlar, Carbon Fibre, and Oil Palm Fibre">
 </section>
+
 <hr>
 
 <section id="RaceSuit">
@@ -236,6 +262,8 @@ Protection was further strengthened by the halo, introduced in 2018 following ex
 From cloth caps and haybales to carbon fibre monocoques and titanium halos, Formula 1’s safety evolution has been driven by relentless innovation and hard lessons. Every major advancement: helmets, fireproof suits, crash structures and medical improvements; reflects a commitment to learning from tragedy and prioritising driver welfare. Today’s Formula 1 represents a pinnacle of engineering, where athletes race at over 200 mph with a level of protection unimaginable in the sport’s early decades.
 </p>
 </section>
+
+</div>
 
 <hr>
 
@@ -273,9 +301,63 @@ F1 (2021) TECH TUESDAY: A close look at the halo – and how it ‘saved Hamilto
 </pre>
 </section>
 
+<!-- Word count and last updated placeholders -->
+<hr>
+<p id="totalWordCount">Calculating word count...</p>
+<div id="last-updated">Loading last update time...</div>
+<button onclick="verifyLastUpdatedTime()" style="display: block; margin: 10px auto; padding: 8px 16px;">
+    Verify Last Modified Time
+</button>
 
 </article>
 </main>
+
+<script>
+  // ----------------- WORD COUNT -----------------
+  function countWordsInContent(sectionId) {
+    const text = document.getElementById(sectionId).textContent;
+    const wordArray = text.trim().split(/\s+/).filter(Boolean);
+    return wordArray.length;
+  }
+
+  function displayWordCount() {
+    const totalWords = countWordsInContent("content-body");
+    document.getElementById("totalWordCount").innerText = `Total word count (Introduction to Conclusion): ${totalWords}`;
+  }
+
+  // ----------------- LAST UPDATED -----------------
+  async function getLastUpdatedTime() {
+    const username = 'nr0025';
+    const repo = 'FY0025';
+    const url = `https://api.github.com/repos/${username}/${repo}/commits`;
+    try {
+      const response = await fetch(url, { headers: { 'Accept': 'application/vnd.github.v3+json' } });
+      if (!response.ok) throw new Error(`Error fetching: ${response.status}`);
+      const commits = await response.json();
+      if (commits && commits.length > 0) {
+        const lastCommitDate = new Date(commits[0].commit.committer.date);
+        document.getElementById('last-updated').innerText = `Last Modified Time: ${lastCommitDate.toLocaleString()}`;
+      } else {
+        document.getElementById('last-updated').innerText = 'No commits found in repository.';
+      }
+    } catch (err) {
+      console.error(err);
+      document.getElementById('last-updated').innerText = 'Error fetching update time.';
+    }
+  }
+
+  async function verifyLastUpdatedTime() {
+    document.getElementById('last-updated').innerText = 'Verifying...';
+    await getLastUpdatedTime();
+    alert("Last modified time has been successfully verified from GitHub API.");
+  }
+
+  // ----------------- INITIAL LOAD -----------------
+  window.addEventListener('DOMContentLoaded', () => {
+    displayWordCount();
+    getLastUpdatedTime();
+  });
+</script>
 
 </body>
 </html>
