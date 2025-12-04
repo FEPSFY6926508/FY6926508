@@ -1,4 +1,136 @@
 <!doctype html>
+  <style>
+    /* ====== COLOUR THEME ADDED (Fun, readable, F1-inspired) ====== */
+
+    :root {
+      --bg: #f5f7fa;                 /* Light grey-blue background */
+      --text: #111;
+      --accent: #e10600;             /* F1 red */
+      --accent-soft: #ffddd9;        /* Soft red tint */
+      --box-bg: #ffffff;
+      --box-border: #d0d0d0;
+      --toc-bg: #fff7f7;             /* light pink/red tone */
+      --toc-hover: #b80000;          /* darker red on hover */
+      --heading: #b30000;            /* headline red */
+    }
+
+    /* Page layout */
+    body {
+      background-color: var(--bg);
+      margin-left: 50px;
+      margin-right: 50px;
+      font-family: "Calibri", "Segoe UI", Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+    }
+
+    header {
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.25rem;
+      color: var(--heading);
+    }
+
+    h2, h3 {
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: var(--heading);
+    }
+
+    hr {
+      border: none;
+      border-top: 2px solid var(--box-border);
+      margin: 1rem 0 1.5rem 0;
+    }
+
+    /* Table of contents box */
+    nav.toc {
+      border: 2px solid var(--accent);
+      padding: 14px;
+      max-width: 360px;
+      background: var(--toc-bg);
+      margin-bottom: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(225, 6, 0, 0.15);
+    }
+
+    nav.toc h3 { 
+      margin: 0 0 8px 0; 
+      color: var(--heading);
+      font-weight: bold;
+    }
+
+    nav.toc a {
+      display: block;
+      text-decoration: none;
+      color: var(--accent);
+      margin: 6px 0;
+      padding: 4px 6px;
+      border-radius: 6px;
+      transition: 0.2s;
+      font-weight: 600;
+    }
+
+    nav.toc a:hover { 
+      background: var(--accent-soft);
+      color: var(--toc-hover);
+    }
+
+    /* Article area */
+    article {
+      max-width: 900px;
+      background: var(--box-bg);
+      padding: 20px 25px;
+      border-radius: 10px;
+      border: 1px solid var(--box-border);
+      box-shadow: 0px 0px 12px rgba(0,0,0,0.07);
+    }
+
+    .meta {
+      color: #555;
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Preformatted for references */
+    pre.references {
+      white-space: pre-wrap;
+      font-family: inherit;
+      font-size: 0.95rem;
+      background: #fff;
+      border-left: 4px solid var(--accent);
+      padding: 14px;
+      overflow-x: auto;
+      border-radius: 6px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.05);
+    }
+
+    /* Smooth scrolling for anchor links */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive layout */
+    @media (max-width: 900px) {
+      body { margin-left: 12px; margin-right: 12px; }
+      nav.toc { max-width: 100%; margin-bottom: 1rem; }
+      article { max-width: 100%; }
+    }
+
+    /* Optional small improvement: all images get slight styling */
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.10);
+    }
+  </style>
+
   <head>
   </head>
   <img src="download (2).png" alt="Banner" width="1200" height="300">
